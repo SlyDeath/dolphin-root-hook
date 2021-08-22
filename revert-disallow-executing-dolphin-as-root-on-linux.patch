@@ -1,0 +1,29 @@
+diff '--color=auto' -Naur a/src/main.cpp b/src/main.cpp
+--- a/src/main.cpp	2021-04-25 16:51:47.836644030 +0100
++++ b/src/main.cpp	2021-04-25 16:54:05.352659466 +0100
+@@ -32,25 +32,8 @@
+ #include <QDBusConnectionInterface>
+ #include <QSessionManager>
+
+-#ifndef Q_OS_WIN
+-#include <unistd.h>
+-#endif
+-#include <iostream>
+-
+ int main(int argc, char **argv)
+ {
+-#ifndef Q_OS_WIN
+-    // Prohibit using sudo or kdesu (but allow using the root user directly)
+-    if (getuid() == 0) {
+-        if (!qEnvironmentVariableIsEmpty("SUDO_USER")) {
+-            std::cout << "Executing Dolphin with sudo is not possible due to unfixable security vulnerabilities." << std::endl;
+-            return EXIT_FAILURE;
+-        } else if (!qEnvironmentVariableIsEmpty("KDESU_USER")) {
+-            std::cout << "Executing Dolphin with kdesu is not possible due to unfixable security vulnerabilities." << std::endl;
+-            return EXIT_FAILURE;
+-        }
+-    }
+-#endif
+
+     /**
+      * enable high dpi support
