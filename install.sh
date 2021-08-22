@@ -27,6 +27,7 @@ Exec=/bin/sh $HOME/.local/share/a_miscs/dolphin-root-hook/revert-disallow-execut
 " | sudo tee /etc/pacman.d/hooks/revert-disallow-executing-dolphin-as-root-on-linux.hook
   fi
   echo 'Hook has been installed'
+  /bin/sh $HOME/.local/share/a_miscs/dolphin-root-hook/revert-disallow-executing-dolphin-as-root-on-linux.sh
 else
   echo 'Hook already installed'
 fi
